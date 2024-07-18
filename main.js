@@ -72,7 +72,7 @@ document.getElementById('task').addEventListener('click', () => {
 });
 
 document.getElementById('stats').addEventListener('click', () => {
-    showPopup("Stats page is under development!");
+    window.location.href = 'main.html';
 });
 
 function createFloatingText(x, y, text) {
