@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETB TAP Stats</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="stats">
+        <h1>ETB TAP Stats</h1>
+        <div>Total Users: <span id="total-users">0</span></div>
+        <div>Total Tapped ETB: <span id="total-tapped-etb">0.0000</span></div>
+        <button onclick="goBack()">Go Back</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const totalUsers = localStorage.getItem('total_users');
+            const totalTappedETB = localStorage.getItem('total_tapped_etb');
+
+            if (totalUsers !== null) {
+                document.getElementById('total-users').innerText = totalUsers;
+            }
+
+            if (totalTappedETB !== null) {
+                document.getElementById('total-tapped-etb').innerText = parseFloat(totalTappedETB).toFixed(4);
+            }
+        });
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
