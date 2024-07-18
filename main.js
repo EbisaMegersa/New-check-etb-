@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             // New user
             updateTotalUsers();
+            updateUserList(user.id, balance);
         }
         updateDisplay();
     } else {
@@ -45,6 +46,7 @@ document.getElementById('main-img').addEventListener('touchstart', (event) => {
         const user = window.Telegram.WebApp.initDataUnsafe.user;
         if (user) {
             localStorage.setItem(`balance_${user.id}`, balance.toFixed(4));
+            updateUserList(user.id, balance);
         }
 
         updateTotalTappedETB();
@@ -120,4 +122,22 @@ function updateTotalTappedETB() {
     }
     totalTappedETB = parseFloat(totalTappedETB) + incrementValue;
     localStorage.setItem('total_tapped_etb', totalTappedETB.toFixed(4));
+}
+
+function updateUserList(userId, userBalance) {
+    let userList = JSON.parse(localStorage.getItem('user_list')) || [];
+
+    // Check if user already exists in the list
+    const existingUser = userList.find(user => user.id === userId);
+    if (existingUser) {
+        existingUser.balance = userBalance;
+    } else {
+        userList.push({ id: userId, balance: userBalance });
+    }
+
+    // Sort user list by balance in descending order
+    userList.sort((a, b) => b.balance - a.balance);
+
+    // Save updated user list
+    localStorage.setItem('user_list', JSON.stringify(userList));
 }
