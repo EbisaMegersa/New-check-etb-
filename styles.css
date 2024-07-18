@@ -58,6 +58,7 @@ body {
     padding: 15px 0;
     border-radius: 15px;
     box-shadow: 0 0 20px #ffcc00;
+    z-index: 10; /* Ensure it stays above other elements */
 }
 
 .nav-item {
@@ -72,12 +73,6 @@ body {
     align-items: center;
     margin-bottom: 5px;
     font-size: 24px;
-}
-
-.nav-icon {
-    width: 24px; /* Adjust the size as needed */
-    height: 24px; /* Adjust the size as needed */
-    border-radius: 50%; /* Optional: to make the image circular */
 }
 
 .nav-photo {
@@ -115,45 +110,4 @@ body {
 
 .hidden {
     display: none;
-}
-
-/* Additional Styles for main.html */
-.stats {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    color: #ffcc00;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-}
-
-.stats h1, .stats h2 {
-    margin-bottom: 20px;
-}
-
-.stats div {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.stats ol {
-    padding-left: 20px;
-    text-align: left;
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.stats li {
-    font-size: 20px;
-    margin-bottom: 5px;
-}
-
-.stats button {
-    background-color: #5701C2;
-    color: #ffcc00;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
 }
